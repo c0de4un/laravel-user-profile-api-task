@@ -12,7 +12,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * App\Models\User
  *
  * @property int              id
- * @property string           name
  * @property string|null      email
  * @property string           password
  * @property string           created_at
@@ -23,6 +22,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static Builder|User query()
  * @method static Builder|User whereId($value)
  * @mixin Eloquent
+ * @mixin Authenticatable
  */
 class User extends Authenticatable
 {
@@ -35,7 +35,6 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
         'gender',
