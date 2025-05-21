@@ -8,12 +8,10 @@ use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Validation\Rule;
 
 /**
- * @property string            email
- * @property string            password
- * @property string            gender
+ * @property int            id
  * @mixin APIRequest
  */
-class RegistrationRequest extends APIRequest
+class GetProfileRequest extends APIRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -23,9 +21,7 @@ class RegistrationRequest extends APIRequest
     public function rules(): array
     {
         return [
-            'email'    => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'string', 'min:6', 'max:64'],
-            'gender'   => ['required', Rule::in([Genders::MALE, Genders::FEMALE])]
+            'id' => ['required', 'numeric', 'min:1'],
         ];
     }
 }
